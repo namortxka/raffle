@@ -1,0 +1,298 @@
+/* General Styles */
+* {
+  border-radius: 0 !important;
+  font-size: 16px;
+}
+body{
+  font-family: "Baloo 2", sans-serif;
+}
+
+.fa-solid {
+  margin-right: 10px;
+}
+
+/* FPS Display */
+#fps {
+  font-family: "Baloo 2", sans-serif;
+  color: rgb(252, 232, 6);
+  font-weight: 900;
+  background-color: rgb(230, 63, 63);
+  outline: none;
+  border-radius: 50px !important;
+  box-shadow: 0px 3px 0px rgba(185, 5, 5, 0.577);
+  width: 90px;
+  position: relative;
+  top: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#fps:hover {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+/* Main Screen */
+.screen {
+  background-image: url("src/background-opt.gif");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.element {
+  position: absolute;
+}
+
+.element1 {
+  width: 240%;
+  left: -320px;
+  bottom: -125%;
+  z-index: 2;
+}
+
+.element2 {
+  right: 40%;
+  width: 168%;
+  bottom: -180%;
+  z-index: 2;
+}
+
+.element3 {
+  right: -66%;
+  bottom: -124%;
+  width: 250%;
+  z-index: 3;
+}
+
+.element4 {
+  right: -100%;
+  bottom: -130%;
+  width: 280%;
+  z-index: 4;
+}
+
+.main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.element5 {
+  top: -85%;
+  right: -15%;
+  width: 120%;
+  z-index: 5;
+}
+
+.element6 {
+  left: 124%;
+  width: 34%;
+  bottom: 140%;
+  z-index: 6;
+}
+
+.element7 {
+  top: -139%;
+  right: 110%;
+  width: 60%;
+  z-index: 7;
+}
+.element8{
+  right: 109%;
+  top: 10%;
+  width: 9%;
+  bottom: 0;
+  z-index: 8;
+}
+.element9{
+  right: 98%;
+  bottom: 68%;
+  width: 8.8%;
+z-index: 9;
+}
+.element10{
+ right: 87%;
+ width: 8.8%;
+  bottom: 68%;
+  z-index: 10;
+}
+.element11{
+  left: 93%;
+  bottom: 57%;
+  width: 30%;
+  z-index: 11;
+}
+.element12{
+  z-index: 12;
+  right: 100%;
+  top: 84%;
+  width: 6%;
+}
+.element13{
+  left: 85%;
+  width: 10%;
+  bottom: -5%;
+ z-index: 16;
+}
+
+#result-1{
+  z-index: 14;
+  position: absolute;
+  color: #ffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 40px !important;
+  background-color: #52227e;
+  padding: 10px;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.099);
+  box-shadow: 0px 1px 0px #2a03458d;
+  left: 90%;
+  top: 50%;
+}
+/*
+#JEtourT2{
+  position: relative;
+  text-align: center;
+  width: 25%;
+  left:90%;
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 6px;
+  bottom: 24%;
+  border: none;
+  border-bottom: 2px solid #00000015;
+  border-radius: 50px !important;
+  box-shadow: 0px 5px 0px #af3b73;
+  background-color: #ff007a;
+  z-index: 15;
+
+ 
+  color: #ffff;
+}*//*
+#drawbutton{
+  position: absolute;
+ z-index: 16;
+ font-size: 1rem;
+ font-weight: 800;
+ color: rgb(255, 255, 255);
+ text-shadow: 0 0 6px #000000; /* Kulay ng shadow sa text */
+  top: 110%;
+  left: 89%;
+  width: 23%;
+  background-color: #ff3333;
+  border-radius: 40px !important;
+  border: none;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.108);
+  padding: 4px;
+  box-shadow: 0px 5px 0px rgb(169, 72, 72);
+  transition: 0.5s ease;
+}*/
+
+.winner{
+  position: absolute;
+  transform: rotate(-20deg);
+  left: 85%;
+  border: none;
+  border-radius: 40px !important;
+  border-bottom: 2px solid rgba(231, 153, 8, 0.638);
+  background-color: rgba(255, 184, 3, 0.971);
+  padding: 3px;
+
+  width: 15%;
+  text-align: center;
+  bottom: 44%;
+  z-index: 20;
+  color: #ffff;
+  box-shadow: 0px 2px 0px rgb(255, 141, 12);
+  font-size: 0.7rem;
+  text-shadow: 1px 1px 6px rgb(0, 0, 0);
+  font-weight: 800;
+}
+
+#drawbutton:hover{
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+
+/* Canvas and Phone Image */
+.canvas-container {
+  position: relative;
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.phone-image {
+  position: absolute;
+  top: -170px;
+  left: -285px;
+  width: 220%;
+  height: 300%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* canvas raffle names body*/
+#nameCanvas {
+  font-family: "Baloo 2", sans-serif;
+  background-color: rgba(0, 0, 0, 0.374);
+  position: relative;
+  color: aliceblue;
+  top: 40%;
+  right: 1%;
+  border-radius: 20px !important;
+  z-index: 2;
+}
+
+/* Raffle Name Boxes */
+.name-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+}
+
+.name-box:nth-child(1) {
+  background: linear-gradient(90deg, #ff007a, #ff4d4d);
+}
+
+.name-box:nth-child(2) {
+  background: linear-gradient(90deg, #5a00ff, #8a2be2);
+}
+
+.name-box:nth-child(3) {
+  background: linear-gradient(90deg, #ffbe00, #ff8400);
+}
+
+.name-box:nth-child(4) {
+  background: linear-gradient(90deg, #e00000, #ff3333);
+}
+
+.name-box:nth-child(5) {
+  background: linear-gradient(90deg, #ff007a, #ff4d4d);
+}
+
+/* Control Panel */
+#control-panel {
+  overflow: scroll;
+  padding: 20px;
+  height: 100vh;
+}
+
+#prize-list {
+  font-size: 1em;
+}

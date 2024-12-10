@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raffle System</title>
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="raffle.css" rel="stylesheet">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <script src="jquery-3.6.1.min.js" type="text/javascript"></script>
+
+
+  <!---------------Baloo Text Font---------------->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <div class="container-fluid">
+    <div class="row">
+        <!-- Main content section (left side) -->
+        <div class="col-md-9 screen">
+            <div class="aurora-effect"></div>
+            <div id="fps">FPS: 0</div> <!-- FPS Display -->
+            <div class="main-container">
+         
+
+                <!-- Canvas to display the raffle names scrolling -->
+                <div class="canvas-container">
+                    <img src="src/mobile phone isolation.gif" alt="Phone Frame" class="phone-image"> <!-- Phone Image -->
+                    <canvas id="nameCanvas" width="500" height="200"></canvas> <!-- Canvas -->
+                    
+                </div>
+                <img src="src/xmas tree isolation.gif" class="element element1" alt="Element 1">
+                <img src="src/boxespink.png" class="element element2" alt="Element 2">
+                <img src="src/santa and xmas tree isolation.gif" class="element element3" alt="Element 3">
+                <img src="src/footer.png" class="element element4" alt="Element 4">
+                <img src="src/PRIMO XMAS BONANZA.png" class="element element5" alt="Element 5">
+                <img src="src/maxwin.png" class="element element6" alt="Element 6">
+                <img src="src/PRIMO GAMING LOGO.png" class="element element7" alt="Element 7">
+                <img src="src/NO ADS.png" class="element element8" alt="Element 8">
+                <img src="src/Pause.png" class="element element9" alt="Element 9">
+                <img src="src/Setting.png" class="element element10" alt="Element 10">
+                <img src="src/7,500000.png" class="element element11" alt="Element 11">
+                <img src="src/Vector Smart Object.png" class="element element12" alt="Element 12">
+                <!-- <img src="src/gift Object.png" class="element element13" alt="Element 13"> -->
+
+
+                
+            </div>
+        </div>
+
+        <!-- Control Panel section (right side) -->
+        <div id="control-panel" class="col-md-3 p-5" >
+            <h3>Control Panel</h3>
+            <hr>
+
+            <!-- Form for selecting prize and entering winner name -->
+            <form method="post">
+                <div class="mb-2">
+                    <select class="form-control" id="winner_prize" name="winner_prize" required>
+                        <option value="">-Select Prize-</option>
+                        <!-- Fake Prize Options -->
+                        <option value="Laptop">Laptop</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Headphones">Headphones</option>
+                    </select>
+                    <div class="prize-warning"></div>
+                </div>
+
+                <!-- Winner name input field -->
+                <div class="mb-2">
+                    <input class="form-control" id="winner_name" type="text" name="winner_name" placeholder="Winner Fullname">
+                </div>
+
+                <!-- Button to start drawing -->
+                <div class="mb-2">
+                    <button id="playScrollButton" class="form-control btn btn-primary"><i class="fa-solid fa-dice"></i> Start Drawing</button>
+                </div>
+
+                <!-- Button to save the result -->
+                <div class="mb-2">
+                    <button class="form-control btn btn-success" type="submit" name="save"><i class="fa-solid fa-save"></i> Save Result</button>
+                </div>
+            </form>
+
+            <!-- Link to winners list -->
+            <div class="mb-2">
+                <a href="#">
+                    <button class="form-control btn btn-info text-white"><i class="fa-solid fa-trophy"></i> Winners</button>
+                </a>
+            </div>
+
+            <!-- Refresh button -->
+            <div class="mb-2">
+                <a href="#">
+                    <button class="form-control btn btn-warning text-white"><i class="fa-solid fa-refresh"></i> Refresh</button>
+                </a>
+            </div>
+
+            <hr>
+
+            <!-- Form for adding/editing prize -->
+            <form method="post">
+                <div class="mb-2">
+                    <div class="input-group mb-3">
+                        <input type="hidden" name="action" value="">
+                        <input type="text" class="form-control" name="prize_title" placeholder="Input Prize" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-success" name="save_changes"><i class="fa-solid fa-add"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Fake Prize List Table -->
+            <div class="mb-2" id="prize-list-container">
+                <table class="col-md-12 table table-bordered table-striped" id="prize-list">
+                    <!-- Fake Prize Data -->
+                    <tr>
+                        <td>Laptop</td>
+                        <td class='d-flex align-items-center justify-content-center'>
+                            <a href="#" class='btn btn-warning btn-sm mx-2 text-white'><i class='fa-solid fa-edit'></i></a>
+                            <a href="#" class='btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Smartphone</td>
+                        <td class='d-flex align-items-center justify-content-center'>
+                            <a href="#" class='btn btn-warning btn-sm mx-2 text-white'><i class='fa-solid fa-edit'></i></a>
+                            <a href="#" class='btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Headphones</td>
+                        <td class='d-flex align-items-center justify-content-center'>
+                            <a href="#" class='btn btn-warning btn-sm mx-2 text-white'><i class='fa-solid fa-edit'></i></a>
+                            <a href="#" class='btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <hr>
+
+            <!-- Back to main menu button -->
+            <a href="#" class="btn btn-danger form-control"><i class="fa-solid fa-home"></i> Back to Main Menu</a>
+        </div>
+    </div>
+</div>
+<script>
+// Get the canvas and its context for drawing
+const canvas = document.getElementById('nameCanvas');
+const ctx = canvas.getContext('2d');
+
+// Control button and prize selection elements
+const playScrollButton = document.getElementById('playScrollButton');
+const winnerPrizeElement = document.getElementById("winner_prize");
+
+// Canvas and scroll settings
+const nameHeight = 40;
+const canvasHeight = canvas.height;
+const canvasWidth = canvas.width;
+let names = [];
+let yPos = 0;
+let scrollSpeed = 7;
+let isScrolling = false;
+
+// Constants for middle name range (for highlighting)
+const LOWER_LIMIT = 80;
+const UPPER_LIMIT = 120;
+
+// Fetch names from the server
+fetch('fetch_names.php')
+    .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+    })
+    .then(data => {
+        names = data;
+        animate(); // Start the animation once data is fetched
+    })
+    .catch(err => {
+        console.error('Error fetching names:', err);
+        alert("There was an issue loading the names. Please try again.");
+    });
+
+// // Function to draw an arrow on the canvas at the left center
+// function drawArrow(yPos) {
+//     const arrowWidth = 30;
+//     const arrowHeight = 20;
+//     const arrowBase = 10;
+
+//     const arrowCenterY = canvasHeight / 2; // Vertical center
+//     const arrowX = 25; // X position of the arrow's base
+
+//     // Draw the left-facing arrow
+//     ctx.beginPath();
+//     ctx.moveTo(arrowX, arrowCenterY); // Start at the base
+//     ctx.lineTo(arrowX - arrowWidth, arrowCenterY + arrowBase); // Left top corner
+//     ctx.lineTo(arrowX - arrowWidth, arrowCenterY - arrowBase); // Left bottom corner
+//     ctx.closePath();
+
+//     // Style and fill the arrow
+//     ctx.lineJoin = 'round';
+//     ctx.lineWidth = 5;
+//     ctx.strokeStyle = 'white'; // Border color
+//     ctx.stroke();
+//     ctx.fillStyle = 'red'; // Arrow color
+//     ctx.fill();
+// }
+
+// Function to draw names on the canvas
+function drawNames() {
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Clear the canvas
+    ctx.font = '20px Arial';
+
+    const gradients = [
+        ['#ff007a', '#ff4d4d'], // Pink gradient
+        ['#5a00ff', '#8a2be2'], // Purple gradient
+        ['#ffbe00', '#ff8400'], // Orange gradient
+        ['#e00000', '#ff3333'], // Red gradient
+        ['#00c853', '#64dd17'], // Green gradient
+    ];
+
+    // Only draw names within the visible canvas area
+    const startIndex = Math.max(0, Math.floor(-yPos / nameHeight));
+    const endIndex = Math.min(names.length, Math.ceil((canvasHeight - yPos) / nameHeight));
+
+    // Draw each name
+    for (let i = startIndex; i < endIndex; i++) {
+        const name = names[i];
+        const y = yPos + i * nameHeight;
+
+        if (y + nameHeight >= 0 && y <= canvasHeight) {
+            const gradient = ctx.createLinearGradient(0, y, canvasWidth, y + nameHeight);
+            const colors = gradients[i % gradients.length];
+            gradient.addColorStop(0, colors[0]);
+            gradient.addColorStop(1, colors[1]);
+
+            // Draw the background box
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, y, canvasWidth, nameHeight);
+
+            
+            const textY = y + (nameHeight / 2) + 10;
+            const middleY = canvasHeight / 2;
+
+            if (y + nameHeight / 2 >= middleY - nameHeight / 2 && y + nameHeight / 2 <= middleY + nameHeight / 2) {
+                ctx.fillStyle = 'white'; 
+                ctx.font =  '24px "Baloo 2", sans-serif'; 
+            } else {
+                ctx.fillStyle = 'white';
+                ctx.font = '20px "Baloo 2", sans-serif';
+            }
+
+          
+            const textWidth = ctx.measureText(name).width;
+            const x = (canvasWidth - textWidth) / 2;
+            ctx.fillText(name, x, textY);
+        }
+    }
+
+    // drawArrow(yPos); // Draw the arrow on top of the names
+
+    // Scroll the names upward if the drawing is active
+    if (isScrolling) {
+        yPos -= scrollSpeed;
+    }
+
+    // Reset scroll position once all names are off the canvas
+    if (yPos + names.length * nameHeight < 0) {
+        yPos = canvasHeight;
+    }
+}
+
+// Function to start the animation loop
+function animate() {
+    drawNames();
+    requestAnimationFrame(animate);
+}
+
+// Debounced function to get the middle name and log the draw
+let debounceTimeout;
+function getMiddleName() {
+    clearTimeout(debounceTimeout); // Clear any pending requests
+
+    debounceTimeout = setTimeout(() => {
+        for (let i = 0; i < names.length; i++) {
+            const y = yPos + i * nameHeight;
+            const nameMiddle = y + nameHeight / 2;
+            if (nameMiddle >= LOWER_LIMIT && nameMiddle <= UPPER_LIMIT) {
+                document.getElementById("winner_name").value = `${names[i]}`;
+                
+                break;
+            }
+        }
+    }, 500); // Debounce for 500ms before sending AJAX request
+}
+
+// Event listener for drawing button
+playScrollButton.addEventListener('click', () => {
+    const varPrizeCheck = winnerPrizeElement.value;
+    if (varPrizeCheck) {
+        playScrollButton.disabled = true;
+        playScrollButton.innerHTML = 'Drawing...';
+
+        isScrolling = !isScrolling; // Toggle scrolling state
+
+        // If not scrolling, finalize the winner selection
+        if (!isScrolling) {
+            getMiddleName();
+        } else {
+            handleScrollSpeedChange(); // Adjust scroll speed progressively
+        }
+    }
+});
+
+// Function to change scroll speed progressively
+async function handleScrollSpeedChange() {
+    const speeds = [7, 6, 5, 4, 3, 2];
+    for (let i = 0; i < speeds.length; i++) {
+        scrollSpeed = speeds[i];
+        console.log(speeds[i]);  // Log the current speed
+
+        await delay(3000);  // Wait before changing speed
+    }
+
+    // Once the final speed is reached, stop the scrolling and finalize the draw
+    getMiddleName();
+    isScrolling = false;
+    playScrollButton.textContent = "Refresh to Draw Again"; // Update button text
+}
+
+// Helper function to create a delay
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// FPS calculation function to optimize animation performance
+let lastTime = 0;
+let frameCount = 0;
+let fps = 0;
+
+function calculateFPS(timestamp) {
+    if (lastTime) {
+        const delta = (timestamp - lastTime) / 1000;
+        frameCount++;
+        if (delta >= 1) {
+            fps = frameCount / delta;
+            document.getElementById('fps').textContent = `FPS: ${Math.round(fps)}`;
+            frameCount = 0;
+            lastTime = timestamp;
+        }
+    } else {
+        lastTime = timestamp;
+    }
+    requestAnimationFrame(calculateFPS); // Continue FPS calculation
+}
+
+requestAnimationFrame(calculateFPS); // Start FPS calculation
+
+</script>
+
+
+ 
+  </body>
+</html>
